@@ -23,7 +23,7 @@ import av #for better performance
 ######################
 ####Set Parameters####
 ######################
-home = '/run/media/harold/Data_Storage/FanPu_Lab/AVP1b_OFT'
+home = 'yourFolder'
 src = home + '/Video'
 tgt = home + '/Picture'
 rmbg_tgt = home + '/Picture_rmbg'
