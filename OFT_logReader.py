@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import ks_2samp as ks_test
 from scipy import stats 
 
-home = '/run/media/harold/Data_Storage/FanPu_Lab/AVP1b_OFT' 
+home = 'yourFolder' 
 logDir = home + '/log'
 bin_num =50
 maxlen = 100
