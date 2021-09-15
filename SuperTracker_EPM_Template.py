@@ -23,10 +23,10 @@ import av #for better performance
 ######################
 ####Set Parameters####
 ######################
-home = '/run/media/harold/Data_Storage/FanPu_Lab/0908_AVP1b_EPM'
-src = home + '/Video2'
-tgt = home + '/Picture2'
-rmbg_tgt = home + '/Picture_rmbg2'
+home = 'yourFolder'
+src = home + '/Video'
+tgt = home + '/Picture'
+rmbg_tgt = home + '/Picture_rmbg'
 logDir = home + '/log'
 isEPM = True # whether EPM or OFT
 startT = 60 # start at 30s
