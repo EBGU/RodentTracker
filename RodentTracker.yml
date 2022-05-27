@@ -1,0 +1,10 @@
+name: RodentTracker
+dependencies:
+  - python=3.8.8
+  - numpy=1.19.2
+  - matplotlib=3.4.1
+  - conda-forge::av=8.0.3
+  - scipy=1.6.2
+  - pip:
+    - opencv-python==4.5.3.56
+    - psutil==5.8.0
