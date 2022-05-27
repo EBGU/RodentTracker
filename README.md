@@ -1,6 +1,14 @@
 # RodentTracker
 An open-source tracking toolkit for EPM of OFT assay of mice or rats. 
 
+This script could NOT run on WINDOWS !!!
+This script could NOT run on WINDOWS !!!
+This script could NOT run on WINDOWS !!!
+
+To create conda environment:
+'''
+conda env create -f RodentTracker.yml 
+'''
 This toolkit includes three major part.
 
 First, it converts videos into sequential images for downstream processings. It would also correct images based on four key points you choose.
