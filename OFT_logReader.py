@@ -17,7 +17,6 @@ totalTime = 0
 fileList = os.listdir(logDir)
 multiThread = psutil.cpu_count(False)
 
-
 ctrlBin = []
 expBin = []
 
@@ -30,7 +29,7 @@ class logReader():
         with open(os.path.join(logDir,f)) as l:
             for i, lines in enumerate(l.readlines()):
                 if i >=3:
-                    dist = float(lines.split('\t')[7])
+                    dist = np.abs(int(lines.split('\t')[2])-250)+np.abs(int(lines.split('\t')[3])-250)#float(lines.split('\t')[7])
                     distanceM.append(dist)   
                     accDistr.append(np.histogram(distanceM,bins=bin_num,range=(0,maxlen),density=True)[0])     
         return accDistr
@@ -49,7 +48,7 @@ for i in Bin:
 ctrlBin = []
 expBin = []
 for i,j in zip(Bin,fileList):
-    if '_KO' in j:
+    if exp_keyword in j:
         print(j)
         expBin.append(i[0:totalTime])
     else:
@@ -84,14 +83,18 @@ pPlot =np.where(pPlot<0.05,-np.log10(pPlot),0)
 
 dist = np.linspace(0.0, maxlen, num=bin_num, endpoint=False)+maxlen*0.5/bin_num
 t = np.arange(0,totalTime)
-fig,(ax1,ax2) = plt.subplots(2,1)
+fig,(ax0,ax1,ax2,ax3) = plt.subplots(4,1)
 expDist = np.mean(expBin,axis=0)
 ctrlDist = np.mean(ctrlBin,axis=0)
-im = ax1.pcolormesh(t, dist, np.mean(expBin,axis=0).transpose(),cmap='Reds',alpha=0.5)
-im = ax1.pcolormesh(t, dist, np.mean(ctrlBin,axis=0).transpose(),cmap='Blues',alpha=0.5)
-fig.colorbar(im, ax=ax1)
-im2 = ax2.pcolormesh(t, dist,pPlot.transpose())
+im0 = ax0.pcolormesh(t, dist, np.mean(expBin,axis=0).transpose(),cmap='Reds')#,alpha=0.5)
+im1 = ax1.pcolormesh(t, dist, np.mean(ctrlBin,axis=0).transpose(),cmap='Blues')#,alpha=0.5)
+im2 = ax2.pcolormesh(t, dist, (np.mean(ctrlBin,axis=0)-np.mean(expBin,axis=0)).transpose(),cmap='turbo',vmax=0.005,vmin=-0.005)#,alpha=0.5)
+fig.colorbar(im0, ax=ax0)
+fig.colorbar(im1, ax=ax1)
 fig.colorbar(im2, ax=ax2)
+im3 = ax3.pcolormesh(t, dist,pPlot.transpose())
+fig.colorbar(im3, ax=ax3)
+plt.savefig(home+'/timeline.png',format='png',dpi=2000)
 plt.show()
 
 
