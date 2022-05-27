@@ -7,6 +7,8 @@ This script could NOT run on WINDOWS !!!
 
 This script could NOT run on WINDOWS !!!
 
+If you indeed need to run it on Windows, please modify this code following [this instruction](https://pytorch.org/docs/stable/notes/windows.html#usage-multiprocessing). We would fix it in the next version.
+
 To create conda environment:
 ```
 conda env create -f RodentTracker.yml 
