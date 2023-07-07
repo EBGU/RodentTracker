@@ -8,4 +8,4 @@ dependencies:
   - pip:
     - opencv-python==4.5.3.56
     - psutil==5.8.0
-    - tqdm
+    - tqdm==4.65.0
