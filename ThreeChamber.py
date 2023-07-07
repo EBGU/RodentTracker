@@ -368,8 +368,8 @@ def ThreeChamber(
 
 if __name__ == "__main__":
     ThreeChamber(
-        '/home/harold/Documents/Harold_D206PC_Data/ZW_Lab/ToHYF/Video 357 00_00_53-00_10_53.mp4',
-        '/home/harold/Documents/Harold_D206PC_Data/ZW_Lab/ToHYF/tmp',
-        '/home/harold/Documents/Harold_D206PC_Data/ZW_Lab/ToHYF/logs',
+        'VideoAbsolutePath',
+        'TmpAbsolutePath',
+        'LogAbsolutePath',
         delete_image=True
     )
